@@ -27,8 +27,8 @@ Welcome to **SmartLearn AI**! 🚀 This project aims to create an interactive we
 - Tailwind CSS 🎨
 
 ### **Backend (API & Logic) 🖥️**
-- Node.js (Express) / Django / Spring Boot *(choose the one you're using)*
-- PostgreSQL / MongoDB *(choose your database)*
+- Spring Boot
+- PostgreSQL (H2 in the beginning)
 
 ### **AI Integration 🤖**
 - OpenAI API / LangChain / Custom AI Model
@@ -58,28 +58,7 @@ Welcome to **SmartLearn AI**! 🚀 This project aims to create an interactive we
 - Define the **AI model and prompts** 🧠
 - Start **UI/UX design and backend API development** 🏗️
 
----  
-
-## **📦 Installation & Setup**
-
-1️⃣ **Clone the repository**
-```bash
-git clone https://github.com/your-username/smartlearn-ai.git
-cd smartlearn-ai
-```
-
-2️⃣ **Install dependencies**
-```bash
-npm install  # for frontend
-pip install -r requirements.txt  # for backend (if using Python)
-```
-
-3️⃣ **Run the project**
-```bash
-npm start  # for frontend
-python manage.py runserver  # for Django backend (or appropriate backend command)
-```
-
+---
 ---  
 
 ## **🛠️ Contributing**
@@ -89,8 +68,16 @@ python manage.py runserver  # for Django backend (or appropriate backend command
 
 ---  
 
-## **📄 License**
-
-📜 This project is licensed under the **MIT License**.
+## **📄 Contributors**
+# 📜 Team Leader: Ирена Латиновска
+### 📜 Ален Јангелов
+### 📜 Дорант Татеши
+### 📜 Симон Илиќ    
+### 📜 Махмуд Мемедовски
+### 📜 Кире Поповски
+### 📜 Марија Тимова
+### 📜 Јован Пендев
+### 📜 Мила Младеновска
+### 📜 Даниел Грков
 
 ---
