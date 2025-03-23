@@ -1,0 +1,39 @@
+how to use:
+    registration:
+        send post request on localhost:8081/auth/register
+        with json body with email, password, role, age
+            example:
+                method: Post
+                url: http://localhost:8081/auth/register
+                json:
+                    {
+                        "email" : "otherUser@test.com",
+                        "password": "test",
+                        "role" : "user",
+                        "age": 12
+                    }
+        then user is created and added to database
+        there is no validation for fields, after that you will need to log in with email and password
+    log in:
+        send post request to localhost:8081/auth/login
+        with json body with email and password
+            example:
+                method: Post
+                url:http://localhost:8081/auth/login
+                json:
+                    {
+                        "email" : "test@test.com",
+                        "password": "test"
+                    }
+        jwt token is generated with duration of 1 day
+        copy the token and use it as Bearer token in Authorization tab (postman) for any request
+    default users:
+        because we use h2 database in DataHolder there are 2 default users
+        role User:
+            email: test@test.com
+            password: test
+        role Admin:
+            email: admin@admin.com
+            password: test
+
+needs future improvements for exeptions, validations duration of the token and more
