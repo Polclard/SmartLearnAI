@@ -18,9 +18,9 @@ import java.util.List;
 public class CourseController {
 
     private final CourseService courseService;
-
+/*
     @PostMapping
-    public ResponseEntity<CourseDto> createCourse(
+    public ResponseEntity<CourseDto> generateCourse(
             @RequestParam String title,
             @RequestParam String description,
             @RequestParam String promptUsed,
@@ -29,7 +29,7 @@ public class CourseController {
         CourseDto courseDTO = courseService.generateCourse(title, description, promptUsed, lessons);
         return ResponseEntity.ok(courseDTO);
     }
-
+*/
     @GetMapping
     public ResponseEntity<List<CourseDto>> getAllCourses() {
         return ResponseEntity.ok(courseService.getAllCourses());
