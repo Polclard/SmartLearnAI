@@ -40,7 +40,7 @@ public class CourseController {
         return ResponseEntity.ok(courseService.getCourseById(id));
     }
 
-    @PostMapping
+    @PostMapping("/create")
     public ResponseEntity<CourseDto> createCourse(
             @Valid @RequestBody CourseRequest request
     ) {
