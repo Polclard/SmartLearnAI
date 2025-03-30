@@ -20,6 +20,13 @@ public class CourseProgress {
     @JoinColumn(name = "user_id", nullable = false)
     private User user;
 
+    public CourseProgress(User user, Course course, int completedLessons, boolean quizPassed) {
+        this.user = user;
+        this.course = course;
+        this.completedLessons = completedLessons;
+        this.quizPassed = quizPassed;
+    }
+
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "course_id")
     private Course course;
