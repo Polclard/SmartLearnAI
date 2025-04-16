@@ -19,4 +19,9 @@ public interface CourseProgressRepository extends JpaRepository<CourseProgress, 
 
     // Find progress by user and course
     CourseProgress findByUserAndCourse(User user, Course course);
+
+    List<CourseProgress> findAllByUserId(Long userId);
+    List<CourseProgress> findAllByUser(User user);
+
+    List<CourseProgress> findAllByUserEmail(String email);
 }
