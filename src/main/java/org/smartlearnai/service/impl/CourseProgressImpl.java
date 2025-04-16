@@ -2,12 +2,16 @@ package org.smartlearnai.service.impl;
 
 import lombok.RequiredArgsConstructor;
 import org.smartlearnai.model.CourseProgress;
+import org.smartlearnai.model.User;
 import org.smartlearnai.model.dto.CourseProgressDto;
 import org.smartlearnai.repository.CourseProgressRepository;
 import org.smartlearnai.repository.CourseRepository;
 import org.smartlearnai.repository.UserRepository;
 import org.smartlearnai.service.ICourseProgress;
 import org.springframework.stereotype.Service;
+
+import java.util.Collections;
+import java.util.List;
 
 @Service
 @RequiredArgsConstructor
@@ -44,5 +48,29 @@ public class CourseProgressImpl implements ICourseProgress {
         foundCourseProgress.setQuizPassed(courseProgress.isQuizPassed());
 
         return courseProgressRepository.save(foundCourseProgress);
+    }
+
+    @Override
+    public List<CourseProgress> getAllCoursesProgressByUserId(Long userId) {
+        if(userId != null) {
+            return courseProgressRepository.findAllByUserId(userId);
+        }
+        return Collections.emptyList();
+    }
+
+    @Override
+    public List<CourseProgress> getAllCoursesProgressByUser(User user) {
+        if(user != null) {
+            return courseProgressRepository.findAllByUser(user);
+        }
+        return Collections.emptyList();
+    }
+
+    @Override
+    public List<CourseProgress> getAllCoursesProgressByUserEmail(String email) {
+        if(email != null) {
+            return courseProgressRepository.findAllByUserEmail(email);
+        }
+        return Collections.emptyList();
     }
 }
