@@ -76,7 +76,6 @@ public class AuthServiceImpl implements AuthService {
             return false;
         }
 
-        // Additional length check (RFC 3696 says max 254 chars for email)
         if (email.length() > 254) {
             return false;
         }
