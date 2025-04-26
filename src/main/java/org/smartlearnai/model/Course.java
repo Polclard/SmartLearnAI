@@ -4,6 +4,7 @@ package org.smartlearnai.model;
 import jakarta.persistence.*;
 import lombok.*;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Entity
@@ -25,7 +26,7 @@ public class Course {
     private String promptUsed;
 
     @OneToMany(mappedBy = "course", cascade = CascadeType.ALL, orphanRemoval = true)
-    private List<Lesson> lessons;
+    private List<Lesson> lessons = new ArrayList<>();
 
     private boolean hasQuiz;
 
