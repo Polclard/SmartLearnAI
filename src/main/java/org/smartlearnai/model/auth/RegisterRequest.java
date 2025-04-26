@@ -9,7 +9,7 @@ public class RegisterRequest {
 
     private final String email;
     private final String password;
-    private final String role;
+//    private final String role;
     private final int age;
 
 }
