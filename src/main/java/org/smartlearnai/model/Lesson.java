@@ -22,7 +22,7 @@ public class Lesson {
 
     private Integer orderInCourse;
 
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne
     @JoinColumn(name = "course_id")
     private Course course;
 
