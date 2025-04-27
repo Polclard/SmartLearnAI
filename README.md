@@ -59,7 +59,60 @@ Welcome to **SmartLearn AI**! 🚀 This project aims to create an interactive we
 - Start **UI/UX design and backend API development** 🏗️
 
 ---
----  
+
+## **📅 Second Team Meeting Summary (March 17, 2025)**
+
+📍 **Platform**: Discord  
+📍 **Discussion Topics**:  
+1️⃣ **Backend and Frontend Implementation Start** - Decided to start implementing **backend functionalities** and the **initial frontend design**.  
+2️⃣ **Task Organization** - Tasks organized into **Backend Development** and **Frontend Development** categories in Jira.
+
+🚀 **Next Steps**:
+- Finish **API development** and **basic UI** 🛠️  
+- Continue with **authentication** and **quiz UI implementation** 🎯
+
+---
+
+## **📅 Third Team Meeting Summary (March 26, 2025)**
+
+📍 **Platform**: Discord  
+📍 **Discussion Topics**:  
+1️⃣ **Additional Functionality** - Decided to add **user course progress saving** functionality.  
+2️⃣ **Design Improvements** - Discussed improvements on the platform's **look and feel**.
+
+🚀 **Next Steps**:
+- Implement **Course Progress backend** 🧠  
+- Finalize **About** and **Home pages** 🎨
+
+---
+
+## **📅 Fourth Team Meeting Summary (April 1, 2025)**
+
+📍 **Platform**: Discord  
+📍 **Discussion Topics**:  
+1️⃣ **Progress Analysis** - Reviewed current progress and planned the next development steps.  
+2️⃣ **API Documentation and Refactoring** - Agreed to integrate **Swagger UI** and improve **error handling** and **logging**.
+
+🚀 **Next Steps**:
+- **Refactor** backend APIs 🔧  
+- **Connect UIs** to backend with **test data** 🚀  
+- **Polish** Home and About pages 🏡
+
+---
+
+## **📅 Fifth Team Meeting Summary (April 15, 2025)**
+
+📍 **Platform**: Discord  
+📍 **Discussion Topics**:  
+1️⃣ **Code Refactoring and Optimization** - Focused on **stabilizing**, **optimizing**, and **cleaning** code.  
+2️⃣ **QA Testing Setup** - Set up the **Selenium environment** and began writing **automated tests**.
+
+🚀 **Next Steps**:
+- Complete **Selenium tests** for **login, registration, course generation, and quizzes** 🧪  
+- Continue **backend and frontend polishing** 🎯
+
+---
+
 
 ## **🛠️ Contributing**
 
