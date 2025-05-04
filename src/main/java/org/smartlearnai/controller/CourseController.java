@@ -69,4 +69,9 @@ public class CourseController {
     public ResponseEntity<CourseDto> toggleFavorite(@PathVariable Long id) {
         return ResponseEntity.ok(courseService.toggleFavorite(id));
     }
+
+    @GetMapping("/courses/search")
+    public ResponseEntity<List<CourseDto>> searchCourses(@RequestParam(required = false) String query) {
+        return ResponseEntity.ok(courseService.filterCourse(query));
+    }
 }
