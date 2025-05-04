@@ -113,7 +113,21 @@ Welcome to **SmartLearn AI**! 🚀 This project aims to create an interactive we
 
 ---
 
+## **📅 Sixth Team Meeting Summary (April 25, 2025)**
 
+📍 **Platform**: Discord  
+📍 **Discussion Topics**:  
+1️⃣ **Change Requests Review** – Analyzed and discussed all four submitted **Change Requests (CR001–CR004)**.  
+2️⃣ **Prioritization** – Prioritized CR001 (Course Search by Text) and CR004 (Switch to ChatGPT API).  
+3️⃣ **Status Updates** – Marked CR001, CR002, and CR003 as **APPROVED**, and **REJECTED** CR004 due to cost.
+
+🚀 **Next Steps**:
+- Start implementing **text-based course filtering** (CR001) 🔍  
+- Begin work on **PDF export for quizzes** (CR002) 📝  
+- Design and implement **Favorites functionality** (CR003) ⭐  
+- No action on **ChatGPT API switch** for now due to budget 🚫
+
+---
 ## **🛠️ Contributing**
 
 👥 **Want to contribute?** Feel free to fork the repository and submit a pull request!  
