@@ -13,6 +13,7 @@ import org.modelmapper.ModelMapper;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 import java.util.stream.Collectors;
 
 @Service
@@ -65,5 +66,16 @@ public class CourseServiceImpl implements CourseService {
         return courseRepository.findById(id)
                 .map(course -> modelMapper.map(course, CourseDto.class))
                 .orElseThrow(() -> new ResourceNotFoundException("Course not found with id: " + id));
+    }
+
+    @Override
+    public CourseDto toggleFavorite(Long id) {
+        Course course = courseRepository.findById(id)
+                .orElseThrow(() -> new ResourceNotFoundException("Course not found with id: " + id));
+
+        course.setFavourite(!course.isFavourite());
+        Course updatedCourse = courseRepository.save(course);
+
+        return modelMapper.map(updatedCourse, CourseDto.class);
     }
 }

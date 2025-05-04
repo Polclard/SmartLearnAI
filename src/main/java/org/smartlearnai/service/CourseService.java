@@ -13,4 +13,6 @@ public interface CourseService {
 
     CourseDto getCourseById(Long id);
 
+    CourseDto toggleFavorite(Long id);
+
 }
