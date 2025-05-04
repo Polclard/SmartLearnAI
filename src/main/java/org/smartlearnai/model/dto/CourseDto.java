@@ -17,6 +17,7 @@ public class CourseDto {
     private String promptUsed;
     private boolean hasQuiz;
     private List<LessonDto> lessons;
+    private boolean isFavorite;
 
 
 }

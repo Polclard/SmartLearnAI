@@ -30,6 +30,8 @@ public class Course {
 
     private boolean hasQuiz;
 
+    private boolean isFavourite;
+
     // Constructors
     public Course() {}
 
@@ -38,6 +40,7 @@ public class Course {
         this.description = description;
         this.promptUsed = promptUsed;
         this.hasQuiz = hasQuiz;
+        this.isFavourite = false;
     }
 
 
