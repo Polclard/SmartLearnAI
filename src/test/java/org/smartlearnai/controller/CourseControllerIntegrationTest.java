@@ -1,4 +1,4 @@
-package org.smartlearnai;
+package org.smartlearnai.controller;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.junit.jupiter.api.AfterEach;

@@ -30,6 +30,7 @@ public class CourseServiceImpl implements CourseService {
                 .description(description)
                 .promptUsed(promptUsed)
                 .hasQuiz(true)
+                .isFavourite(false)
                 .build();
 
         List<Lesson> lessons = lessonDTOs.stream().map(lessonDto -> {
@@ -51,6 +52,7 @@ public class CourseServiceImpl implements CourseService {
                 .promptUsed(course.getPromptUsed())
                 .hasQuiz(true)
                 .lessons(lessonDTOs)
+                .isFavorite(course.isFavourite())
                 .build();
     }
 
