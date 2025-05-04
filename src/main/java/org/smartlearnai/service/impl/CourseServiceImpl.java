@@ -13,7 +13,6 @@ import org.modelmapper.ModelMapper;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
-import java.util.Optional;
 import java.util.stream.Collectors;
 
 @Service
@@ -79,5 +78,18 @@ public class CourseServiceImpl implements CourseService {
         Course updatedCourse = courseRepository.save(course);
 
         return modelMapper.map(updatedCourse, CourseDto.class);
+    }
+
+    @Override
+    public List<CourseDto> filterCourse(String query) {
+        List<Course> foundCourses;
+        if (query == null || query.isBlank()) {
+            foundCourses = courseRepository.findAll();
+        } else {
+            foundCourses = courseRepository.findByTitleContainingIgnoreCaseOrDescriptionContainingIgnoreCase(query, query);
+        }
+        return foundCourses.stream()
+                .map(course -> modelMapper.map(course, CourseDto.class))
+                .collect(Collectors.toList());
     }
 }
