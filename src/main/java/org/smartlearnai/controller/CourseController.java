@@ -71,7 +71,35 @@ public class CourseController {
     }
 
     @GetMapping("/courses/search")
-    public ResponseEntity<List<CourseDto>> searchCourses(@RequestParam(required = false) String query) {
-        return ResponseEntity.ok(courseService.filterCourse(query));
+    public ResponseEntity<?> searchCourses(
+            @RequestParam(required = false) String query) {
+
+        // Validate Input: Query is null or empty
+        if (query == null || query.trim().isEmpty()) {
+            return ResponseEntity
+                    .badRequest()
+                    .body("Query cannot be empty.");
+        }
+
+        // Validate Input: No Special Characters
+        if (!query.matches("^[a-zA-Z0-9\\s]+$")) {
+            return ResponseEntity
+                    .badRequest()
+                    .body("Invalid query - No special characters allowed");
+        }
+
+        // Search Courses
+        List<CourseDto> courses = courseService.filterCourse(query);
+
+        // Handle Empty Results (404 Not Found)
+        if (courses.isEmpty()) {
+            return ResponseEntity
+                    .status(404)
+                    .body("No courses found for the given query.");
+        }
+
+        return ResponseEntity.ok(courses);
     }
+
+
 }
