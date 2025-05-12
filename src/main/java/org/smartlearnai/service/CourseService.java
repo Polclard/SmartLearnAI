@@ -13,7 +13,5 @@ public interface CourseService {
 
     CourseDto getCourseById(Long id);
 
-    CourseDto toggleFavorite(Long id);
-
     List<CourseDto> filterCourse(String query);
 }
