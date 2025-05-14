@@ -29,7 +29,6 @@ public class CourseServiceImpl implements CourseService {
                 .description(description)
                 .promptUsed(promptUsed)
                 .hasQuiz(true)
-                .isFavourite(false)
                 .build();
 
         List<Lesson> lessons = lessonDTOs.stream().map(lessonDto -> {
@@ -51,7 +50,6 @@ public class CourseServiceImpl implements CourseService {
                 .promptUsed(course.getPromptUsed())
                 .hasQuiz(true)
                 .lessons(lessonDTOs)
-                .isFavorite(course.isFavourite())
                 .build();
     }
 
@@ -67,17 +65,6 @@ public class CourseServiceImpl implements CourseService {
         return courseRepository.findById(id)
                 .map(course -> modelMapper.map(course, CourseDto.class))
                 .orElseThrow(() -> new ResourceNotFoundException("Course not found with id: " + id));
-    }
-
-    @Override
-    public CourseDto toggleFavorite(Long id) {
-        Course course = courseRepository.findById(id)
-                .orElseThrow(() -> new ResourceNotFoundException("Course not found with id: " + id));
-
-        course.setFavourite(!course.isFavourite());
-        Course updatedCourse = courseRepository.save(course);
-
-        return modelMapper.map(updatedCourse, CourseDto.class);
     }
 
     @Override
