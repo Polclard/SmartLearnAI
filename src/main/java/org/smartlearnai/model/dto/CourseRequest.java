@@ -1,26 +1,23 @@
 package org.smartlearnai.model.dto;
 
+import lombok.Data;
 import jakarta.validation.constraints.NotBlank;
-import jakarta.validation.constraints.NotEmpty;
-import lombok.*;
+import jakarta.validation.constraints.Size;
 
 import java.util.List;
 
 @Data
-@NoArgsConstructor
-@AllArgsConstructor
-@Builder
 public class CourseRequest {
 
-    @NotBlank(message = "Course title is required")
+    @NotBlank(message = "Title is required")
     private String title;
 
-    @NotBlank(message = "Course description is required")
+    @NotBlank(message = "Description is required")
     private String description;
 
     @NotBlank(message = "Prompt is required")
-    private String promptUsed;
+    @Size(max = 1000, message = "Prompt cannot exceed 1000 characters")
+    private String promptUsed; // Changed from List<Message> to String
 
-    @NotEmpty(message = "Lessons list cannot be empty")
     private List<LessonDto> lessons;
 }

@@ -1,6 +1,5 @@
 package org.smartlearnai.service.impl;
 
-
 import org.smartlearnai.model.Course;
 import org.smartlearnai.model.Lesson;
 import org.smartlearnai.model.dto.CourseDto;
@@ -42,31 +41,23 @@ public class CourseServiceImpl implements CourseService {
 
         course.setLessons(lessons);
 
-        courseRepository.save(course);
+        Course savedCourse = courseRepository.save(course);
 
-        return CourseDto.builder()
-                .id(courseRepository.findById(course.getId()).get().getId())
-                .title(course.getTitle())
-                .description(course.getDescription())
-                .promptUsed(course.getPromptUsed())
-                .hasQuiz(true)
-                .lessons(lessonDTOs)
-                .isFavorite(course.isFavourite())
-                .build();
+        return convertToDto(savedCourse, lessonDTOs);
     }
 
     @Override
     public List<CourseDto> getAllCourses() {
         return courseRepository.findAll().stream()
-                .map(course -> modelMapper.map(course, CourseDto.class))
-                .toList();
+                .map(this::convertToDto)
+                .collect(Collectors.toList());
     }
 
     @Override
     public CourseDto getCourseById(Long id) {
-        return courseRepository.findById(id)
-                .map(course -> modelMapper.map(course, CourseDto.class))
+        Course course = courseRepository.findById(id)
                 .orElseThrow(() -> new ResourceNotFoundException("Course not found with id: " + id));
+        return convertToDto(course);
     }
 
     @Override
@@ -77,7 +68,7 @@ public class CourseServiceImpl implements CourseService {
         course.setFavourite(!course.isFavourite());
         Course updatedCourse = courseRepository.save(course);
 
-        return modelMapper.map(updatedCourse, CourseDto.class);
+        return convertToDto(updatedCourse);
     }
 
     @Override
@@ -89,7 +80,37 @@ public class CourseServiceImpl implements CourseService {
             foundCourses = courseRepository.findByTitleContainingIgnoreCaseOrDescriptionContainingIgnoreCase(query, query);
         }
         return foundCourses.stream()
-                .map(course -> modelMapper.map(course, CourseDto.class))
+                .map(this::convertToDto)
                 .collect(Collectors.toList());
+    }
+
+    // Helper method to convert Course entity to CourseDto with existing LessonDtos
+    private CourseDto convertToDto(Course course, List<LessonDto> lessonDTOs) {
+        return CourseDto.builder()
+                .id(course.getId())
+                .title(course.getTitle())
+                .description(course.getDescription())
+                .promptUsed(course.getPromptUsed())
+                .hasQuiz(course.isHasQuiz())
+                .isFavorite(course.isFavourite())
+                .lessons(lessonDTOs)
+                .build();
+    }
+
+    // Helper method to convert Course entity to CourseDto
+    private CourseDto convertToDto(Course course) {
+        List<LessonDto> lessonDtos = course.getLessons().stream()
+                .map(lesson -> modelMapper.map(lesson, LessonDto.class))
+                .collect(Collectors.toList());
+
+        return CourseDto.builder()
+                .id(course.getId())
+                .title(course.getTitle())
+                .description(course.getDescription())
+                .promptUsed(course.getPromptUsed())
+                .hasQuiz(course.isHasQuiz())
+                .isFavorite(course.isFavourite())
+                .lessons(lessonDtos)
+                .build();
     }
 }

@@ -1,6 +1,5 @@
 package org.smartlearnai.model;
 
-
 import jakarta.persistence.*;
 import lombok.*;
 
@@ -23,7 +22,8 @@ public class Course {
     @Column(length = 5000)
     private String description;
 
-    private String promptUsed;
+    @Column(length = 1000)
+    private String promptUsed; // Changed from List<Message> to String
 
     @OneToMany(mappedBy = "course", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<Lesson> lessons = new ArrayList<>();
@@ -42,6 +42,4 @@ public class Course {
         this.hasQuiz = hasQuiz;
         this.isFavourite = false;
     }
-
-
 }

@@ -40,7 +40,7 @@ public class SecurityConfig {
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
         http.addFilterBefore(jwtAuthenticationFilter, UsernamePasswordAuthenticationFilter.class);
         http
-//                .cors().disable()
+                .cors(cors -> {})
 //                .csrf().disable()
                 .authorizeHttpRequests(
                         auth -> auth
