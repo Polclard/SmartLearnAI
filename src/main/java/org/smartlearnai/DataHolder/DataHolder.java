@@ -30,8 +30,8 @@ public class DataHolder {
 
         if (userRepository.count() == 0) {
             String password = passwordEncoder.encode("test");
-            users.add(new User(null, "test@test.com", password, "USER", 12));
-            users.add(new User(null, "admin@admin.com", password, "ADMIN", 12));// password = test
+            users.add(new User(null, "test@test.com", password, "USER", 12, null));
+            users.add(new User(null, "admin@admin.com", password, "ADMIN", 12, null));// password = test
 
             userRepository.saveAll(users);
         }

@@ -1,11 +1,14 @@
 package org.smartlearnai.service.impl;
 
+import org.smartlearnai.model.Course;
 import org.smartlearnai.model.User;
+import org.smartlearnai.repository.CourseRepository;
 import org.smartlearnai.repository.UserRepository;
 import org.smartlearnai.service.UserService;
 import org.springframework.stereotype.Service;
 
 import java.util.Optional;
+import java.util.Set;
 
 @Service
 
@@ -16,7 +19,9 @@ public class UserServiceImpl implements UserService {
 
     private final UserRepository userRepository;
 
-    public UserServiceImpl(UserRepository userRepository) {
+    private CourseRepository courseRepository;
+
+    public UserServiceImpl(UserRepository userRepository, CourseRepository courseRepository) {
         this.userRepository = userRepository;
     }
 
@@ -25,5 +30,4 @@ public class UserServiceImpl implements UserService {
         Optional<User> user = userRepository.findUserByEmail(email);
         return user;
     }
-
 }

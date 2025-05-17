@@ -53,7 +53,7 @@ class AuthTest {
 
     @Test
     void registerSuccess() {
-        User testUser = new User(4L, "user@test.com", "encodedPassword", "user", 21);
+        User testUser = new User(4L, "user@test.com", "encodedPassword", "user", 21, null);
         when(userRepository.save(any(User.class))).thenReturn(testUser);
         when(passwordEncoder.encode(any(String.class))).thenReturn("encodedPassword");
 
@@ -96,7 +96,7 @@ class AuthTest {
         // Arrange
         String email = "user@test.com";
         String password = "validPassword";
-        User mockUser = new User(1L, email, "encodedPassword", "ROLE_USER", 25);
+        User mockUser = new User(1L, email, "encodedPassword", "ROLE_USER", 25, null);
         UserPrincipal mockPrincipal = UserPrincipal.builder()
                 .userId(mockUser.getId())
                 .email(mockUser.getEmail())

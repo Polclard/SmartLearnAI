@@ -1,11 +1,14 @@
 package org.smartlearnai.model;
 
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.*;
 
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 @Entity
 @Getter
@@ -31,6 +34,11 @@ public class Course {
     private boolean hasQuiz;
 
     private boolean isFavourite;
+
+    @JsonIgnore
+    @ManyToMany(mappedBy = "favoriteCourses", fetch = FetchType.LAZY)
+    private Set<User> favoritedByUsers = new HashSet<>();  // Users who favorited this course
+
 
     // Constructors
     public Course() {}
