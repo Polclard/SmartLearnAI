@@ -6,6 +6,9 @@ import org.smartlearnai.model.dto.QuizDto;
 import org.smartlearnai.model.dto.QuizRequest;
 import org.smartlearnai.service.QuizService;
 import org.springframework.http.ResponseEntity;
+import org.springframework.http.HttpHeaders;
+import org.springframework.http.MediaType;
+import org.springframework.http.HttpStatus;
 
 import org.springframework.web.bind.annotation.*;
 
@@ -45,4 +48,21 @@ public class QuizController {
         QuizDto quizDto = quizService.createQuiz(request);
         return ResponseEntity.ok(quizDto);
     }
+
+
+    @PostMapping("/{id}/export")
+    public ResponseEntity<byte[]> exportQuiz(
+            @PathVariable Long id,
+            @RequestBody Map<Long, String> userAnswers
+    ) {
+        byte[] pdfBytes = quizService.exportQuizToPdf(id, userAnswers);
+
+        HttpHeaders headers = new HttpHeaders();
+        headers.setContentType(MediaType.APPLICATION_PDF);
+        headers.setContentDispositionFormData("attachment", "quiz-" + id + ".pdf");
+
+        return new ResponseEntity<>(pdfBytes, headers, HttpStatus.OK);
+    }
+
+
 }

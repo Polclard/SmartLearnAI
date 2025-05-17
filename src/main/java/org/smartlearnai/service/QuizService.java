@@ -12,4 +12,7 @@ public interface QuizService {
     QuizDto getQuizById(Long id);
     int scoreQuiz(Long quizId, Map<Long, String> submittedAnswers);
     QuizDto createQuiz(QuizRequest request);
+
+    byte[] exportQuizToPdf(Long quizId, Map<Long, String> userAnswers);
+
 }
