@@ -12,4 +12,5 @@ public interface CourseHistoryRepository extends JpaRepository<CourseHistory, Lo
     List<CourseHistory> findByCourseId(Long courseId);
     List<CourseHistory> findByUserIdAndCourseId(Long userId, Long courseId);
     List<CourseHistory> findByCourseTitleContainingIgnoreCase(String courseTitle);
+    List<CourseHistory> findByUserIdAndIsFavoriteTrue(Long userId);
 }

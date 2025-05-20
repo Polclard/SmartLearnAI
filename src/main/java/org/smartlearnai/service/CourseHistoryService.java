@@ -37,4 +37,13 @@ public interface CourseHistoryService {
 
     // Delete history entry
     void deleteCourseHistory(Long id);
+
+    // Toggle favorite status
+    CourseHistoryDto toggleFavoriteStatus(Long id, boolean isFavorite);
+
+    // Get favorite histories by user
+    List<CourseHistoryDto> getFavoriteCourseHistoryByUserId(Long userId);
+
+    // Export history to PDF
+    byte[] exportHistoryToPdf(Long id);
 }
